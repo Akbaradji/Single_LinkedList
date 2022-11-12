@@ -29,7 +29,7 @@ namespace singly_linked_list
             newnode.rollNumber = nim;
             newnode.name = nm;
 
-            if (START != null || nim <= START.rollNumber)
+            if (START == null || nim <= START.rollNumber)
             {
                 if ((START != null) && (nim == START.rollNumber))
                 {
@@ -39,6 +39,21 @@ namespace singly_linked_list
                 newnode.next = START;
                 START = newnode;
                 return;
+            }
+
+            Node previous, current;
+            previous = START;
+            current = START;
+
+            while ((current != null) && (nim >= current.rollNumber))
+            {
+                if (nim == current.rollNumber)
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed\n");
+                    return;
+                }
+                previous = current;
+                current = current.next;
             }
         }
     }
