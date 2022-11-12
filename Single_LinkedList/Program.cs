@@ -28,6 +28,14 @@ namespace singly_linked_list
             Node newnode = new Node();
             newnode.rollNumber = nim;
             newnode.name = nm;
+
+            if (START != null || nim <= START.rollNumber)
+            {
+                if ((START != null) && (nim == START.rollNumber))
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed\n");
+                }
+            }
         }
     }
 }
